@@ -12,7 +12,7 @@ class FileController {
 
       const fileName = `${Date.now()}.${upload.subtype}`
 
-      await upload.move(Helpers.tmpPath('upload'), {
+      await upload.move(Helpers.tmpPath('uploads'), {
         name: fileName
       })
 
