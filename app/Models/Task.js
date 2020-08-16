@@ -4,6 +4,13 @@
 const Model = use('Model')
 
 class Task extends Model {
+  static boot () {
+    super.boot()
+
+    this.addHook('afterSave', 'TaskHook.sendNewMail')
+    this.addHook('beforeUpdate', 'TaskHook.sendNewMail')
+  }
+
   project () {
     return this.belongsTo('App/Models/Project')
   }
